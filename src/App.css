@@ -1,0 +1,65 @@
+.app {
+  min-height: calc(100vh - 25px);
+}
+
+.current-weather .weather-icon {
+  display: block;
+  width: 160px;
+  height: 100%;
+}
+
+.future-weather .day {
+  color: #898989;
+  font-size: .85rem;
+}
+
+.box .content {
+  text-align: center;
+}
+
+.box .content .subtitle {
+  font-weight: 400;
+}
+
+.box .content .slash {
+  color: #bbb;
+}
+
+.box .content img {
+  max-width: 75px;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  font-size: .875rem;
+  padding: 1rem !important;
+  text-align: center;
+  width: 100%;
+}
+
+.current-weather .box {
+  padding: 1rem 4rem;
+  margin: 25px 0;
+}
+
+.current-weather .current-temp {
+  font-size: 6rem;
+}
+
+.current-temp .current-summary {
+  font-weight: 300;
+  color: #898989;
+}
+
+.current-weather .box .content img {
+  max-width: 160px;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+.footer {
+  background-color: #fff !important;
+}
