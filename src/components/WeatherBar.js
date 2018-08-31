@@ -73,8 +73,12 @@ class WeatherBar extends Component {
   };
 
   searchCity = city => {
+    // const KEY = 'Your Dark Sky API key here';
     const API =
-      'https://maps.googleapis.com/maps/api/geocode/json?address=' + city;
+      'https://maps.googleapis.com/maps/api/geocode/json?address=' +
+      city +
+      '&key=' +
+      KEY;
     fetch('https://cors-anywhere.herokuapp.com/' + API)
       .then(response => response.json())
       .then(data =>
