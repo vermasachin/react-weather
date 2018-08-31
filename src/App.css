@@ -63,3 +63,9 @@
 .footer {
   background-color: #fff !important;
 }
+
+@media (max-width: 768px) {
+  .box {
+    margin: 0 5%;
+  }
+}
