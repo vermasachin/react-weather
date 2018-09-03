@@ -12,9 +12,6 @@ const DAYS_MAP = [
   'Saturday'
 ];
 
-// TODO
-// Set endpoint = api call, then fetch endpoint inside searchCity
-
 class WeatherBar extends Component {
   constructor(props) {
     super(props);
@@ -35,7 +32,7 @@ class WeatherBar extends Component {
 
   getWeather(lat, lng) {
     const API = 'https://api.darksky.net/forecast/';
-    //const API_KEY = 'Your Dark Sky API key here';
+    // const API_KEY = Your Dark Sky API key;
     const SI_UNITS = '?units=si';
     fetch(
       'https://cors-anywhere.herokuapp.com/' +
@@ -69,27 +66,25 @@ class WeatherBar extends Component {
     e.preventDefault();
     e.stopPropagation();
     this.searchCity(this.state.city);
-    //we have city here
   };
 
   searchCity = city => {
-    // const KEY = 'Your Dark Sky API key here';
-    const API =
-      'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-      city +
-      '&key=' +
-      KEY;
-    fetch('https://cors-anywhere.herokuapp.com/' + API)
+    // const HERE_APP_ID = Your HERE maps APP ID;
+    // const HERE_API_KEY = Your HERE maps API key;
+    const API = `https://geocoder.api.here.com/6.2/geocode.json?app_id=${HERE_APP_ID}&app_code=${HERE_API_KEY}&searchtext=${city}&language=en`;
+    fetch(API)
       .then(response => response.json())
       .then(data =>
         this.setState(
           {
-            city: data.results[0].address_components[0].long_name,
-            latitude: data.results[0].geometry.location.lat,
-            longitude: data.results[0].geometry.location.lng
+            city: data.Response.View[0].Result[0].Location.Address.City,
+            latitude:
+              data.Response.View[0].Result[0].Location.DisplayPosition.Latitude,
+            longitude:
+              data.Response.View[0].Result[0].Location.DisplayPosition.Longitude
           },
           () => {
-            console.log(data.results[0].address_components[0].long_name);
+            console.log(data.Response.View[0].Result[0].Location.Address.City);
             this.getWeather(this.state.latitude, this.state.longitude);
           }
         )
